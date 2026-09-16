@@ -6,7 +6,8 @@
 
 Checks the rules that can be checked mechanically: frontmatter fields,
 type matching the folder, ISO dates, headings and first sentences that
-carry the subject, relative dates, and a few secret patterns. It reports
+carry the subject, related files that exist, relative dates, and a few
+secret patterns. It reports
 and exits non-zero on failure. It never rewrites a file.
 """
 import re
@@ -86,6 +87,10 @@ def check(path):
         errors.append(f"{path}: relative date `{m.group(0)}`")
     for m in SECRETS.finditer(text):
         errors.append(f"{path}: possible secret `{m.group(0)[:20]}…`")
+    base = path.parent.parent
+    for rel in [r.strip() for r in fm.get("related", "").strip("[]").split(",") if r.strip()]:
+        if not (base / rel).exists():
+            errors.append(f"{path}: related file `{rel}` not found")
     if "<" in fm.get("title", "") or re.search(r"^# <", body, re.M):
         errors.append(f"{path}: template placeholders left in place")
     return errors

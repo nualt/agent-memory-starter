@@ -1,0 +1,6 @@
+{
+  "_comment": "folder -> Cognee dataset. Solo use: one dataset per file type (below). Company use: one dataset per access perimeter, e.g. {\"hr\": \"hr\", \"finance\": \"finance\"}, with the file type kept in the frontmatter.",
+  "projects": "projects",
+  "decisions": "decisions",
+  "procedures": "procedures"
+}

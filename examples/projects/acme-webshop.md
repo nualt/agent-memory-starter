@@ -5,7 +5,7 @@ project: acme-webshop
 tags: [ecommerce, medusa, nextjs, vercel]
 date: 2026-08-20
 status: active
-related: [decisions/2026-07-02-acme-webshop-media-storage.md, procedures/storefront-cache-invalidation.md]
+related: [decisions/2026-07-02-acme-webshop-media-storage.md]
 ---
 
 # Acme Webshop
@@ -45,7 +45,6 @@ developer on our side. Escalation goes to the studio founder.
 
 ## Acme Webshop: history
 
-- 2026-08-20: Acme Webshop moved storefront cache invalidation to the
-  procedure `storefront-cache-invalidation`.
+- 2026-08-20: Acme Webshop set product page cache to one hour.
 - 2026-07-02: Acme Webshop switched planned media storage from R2 to
   Vercel Blob.
